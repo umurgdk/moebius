@@ -1,6 +1,12 @@
 # Moebius
 Moebius is a simple task runner built for monorepos to reduce build/test times by understanding which project changed since the last successful build/test/deploy and running tests only for them.
 
+## Install
+
+```
+$ go install github.com/umurgdk/moebius
+```
+
 ## Usage
 
 ```
