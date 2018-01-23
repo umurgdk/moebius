@@ -55,6 +55,7 @@ onlyChanged: true
 # cache path to keep record of last successful build commits. Most of the
 # continus integration systems like travis, circleci supports caching. Please
 # refer to your CI systems documentation to set a correct path
+# For travis see: https://docs.travis-ci.com/user/caching/#Arbitrary-directories
 # default value is `.moebius`
 cache: .moebius
 
