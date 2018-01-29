@@ -36,7 +36,24 @@ func main() {
 	build := &cobra.Command{
 		Use:   "build",
 		Short: "Runs build commands",
-		Run:   Build,
+		Args:  cobra.MaximumNArgs(1),
+		PreRun: func(cmd *cobra.Command, args []string) {
+			if len(args) == 1 {
+				var project Project
+				for _, p := range Config.Projects {
+					if p.Name == args[0] {
+						project = p
+					}
+				}
+
+				if project.Name != args[0] {
+					log.Fatalf("[ERROR] Project %s not found", args[0])
+				}
+
+				ActiveProjects = []Project{project}
+			}
+		},
+		Run: Build,
 	}
 
 	test := &cobra.Command{
